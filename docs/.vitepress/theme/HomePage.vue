@@ -11,8 +11,8 @@
           <p class="hero-subtitle">一个猎头老炮儿的10年血泪真经</p>
           <p class="hero-meta">5 大部分 · 16 章 · 79 节 · 实战导向</p>
           <div class="hero-actions">
-            <a href="/intro/" class="btn-primary">开始阅读</a>
-            <a href="/about" class="btn-outline">了解更多</a>
+            <a :href="withBase('/intro/')" class="btn-primary">开始阅读</a>
+            <a :href="withBase('/about')" class="btn-outline">了解更多</a>
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
           <a
             v-for="chapter in part.chapters"
             :key="chapter.chapterId"
-            :href="chapter.link"
+            :href="withBase(chapter.link)"
             class="chapter-card"
           >
             <div class="card-top">
@@ -40,13 +40,28 @@
             <h4 class="card-title">{{ chapter.title }}</h4>
             <ul class="card-sections">
               <li v-for="(section, si) in chapter.sections.slice(0, 3)" :key="section.sectionId">
-                <a :href="section.link" @click.stop>{{ section.title }}</a>
+                <a :href="withBase(section.link)" @click.stop>{{ section.title }}</a>
               </li>
               <li v-if="chapter.sections.length > 3" class="more-link">
-                <a :href="chapter.link" @click.stop>还有 {{ chapter.sections.length - 3 }} 节…</a>
+                <a :href="withBase(chapter.link)" @click.stop>还有 {{ chapter.sections.length - 3 }} 节…</a>
               </li>
             </ul>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 推荐语 -->
+    <section class="endorsements-section">
+      <h2 class="section-title">他们这样说</h2>
+      <div class="endorsements-grid">
+        <div v-for="item in endorsements" :key="item.name" class="endorsement-card">
+          <div class="endorsement-avatar">{{ item.avatar }}</div>
+          <blockquote class="endorsement-quote">{{ item.quote }}</blockquote>
+          <div class="endorsement-author">
+            <span class="endorsement-name">{{ item.name }}</span>
+            <span class="endorsement-title">{{ item.title }}</span>
+          </div>
         </div>
       </div>
     </section>
@@ -55,12 +70,35 @@
     <section class="cta-section">
       <h2 class="cta-title">准备好开启你的求职之旅了吗？</h2>
       <p class="cta-desc">从认知祛魅到面试出牌，从薪资谈判到职业规划，一位猎头老炮儿为你拆解求职博弈的全部规则。</p>
-      <a href="/intro/" class="btn-primary cta-btn">立即开始阅读</a>
+      <a :href="withBase('/intro/')" class="btn-primary cta-btn">立即开始阅读</a>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
+import { withBase } from 'vitepress'
+
+const endorsements = [
+  {
+    name: '李希梅',
+    title: '前字节跳动 HRBP 负责人',
+    quote: '这本书把求职博弈的底层逻辑讲透了。不是鸡汤，不是话术，而是真正帮你理解招聘方视角的认知升级。',
+    avatar: '李',
+  },
+  {
+    name: '张丽俊',
+    title: '创业酵母创始人 / 组织战略专家',
+    quote: '从简历到薪资谈判，每一章都有可以直接用的方法论。特别是 Offer 评估五维模型，我推荐给所有做职业咨询的同行。',
+    avatar: '张',
+  },
+  {
+    name: '崔磊',
+    title: '资深猎头顾问 / 职场博主',
+    quote: '做了15年猎头，这本书说出了我一直想告诉候选人却说不清楚的话。尤其是候选人分级和跳槽进化那两章，值得反复读。',
+    avatar: '崔',
+  },
+]
+
 const parts = [
   {
     name: '祛魅——把求职这件事看清楚',
@@ -502,6 +540,68 @@ const parts = [
   opacity: 0.7;
 }
 
+/* ===== Endorsements ===== */
+.endorsements-section {
+  padding: 3rem 0;
+  border-top: 1px solid var(--vp-c-divider);
+}
+.endorsements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.endorsement-card {
+  border-radius: 8px;
+  padding: 1.5rem 1.25rem;
+  border: 1px solid var(--vp-c-border);
+  background-color: var(--vp-c-bg-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.endorsement-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-brand-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif SC', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.endorsement-quote {
+  margin: 0;
+  font-family: 'Noto Serif SC', Georgia, serif;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--vp-c-text-2);
+  flex: 1;
+  position: relative;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-brand-primary);
+  opacity: 0.85;
+}
+.endorsement-author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.endorsement-name {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+.endorsement-title {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 0.75rem;
+  color: var(--vp-c-text-3);
+}
+
 /* ===== CTA ===== */
 .cta-section {
   padding: 3.5rem 0;
@@ -539,12 +639,14 @@ const parts = [
     justify-content: center;
   }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .endorsements-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: 2rem; }
   .cover-img { width: 240px; }
 }
 @media (max-width: 640px) {
   .homepage { padding: 0 1.25rem; }
   .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .endorsements-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .hero-actions .btn-primary,
   .hero-actions .btn-outline { width: 100%; }
