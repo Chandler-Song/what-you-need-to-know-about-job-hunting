@@ -9,7 +9,7 @@
         <div class="hero-text">
           <h1 class="hero-title">关于求职，你要知道的那些事</h1>
           <p class="hero-subtitle">一个猎头老炮儿的10年血泪真经</p>
-          <p class="hero-meta">6 大部分 · 16 章 · 终章 · 5 篇附录 · 实战导向</p>
+          <p class="hero-meta">5 大部分 · 16 章 · 79节 · 5 篇附录 · 实战导向</p>
           <div class="hero-actions">
             <a :href="withBase('/intro/')" class="btn-primary">开始阅读</a>
             <a :href="withBase('/about')" class="btn-outline">了解更多</a>
@@ -80,19 +80,19 @@ import { withBase } from 'vitepress'
 
 const endorsements = [
   {
-    name: '李希梅',
-    title: '前字节跳动 HRBP 负责人',
+    name: 'Doris Li',
+    title: '一线大厂 HRBP 负责人',
     quote: '这本书把求职博弈的底层逻辑讲透了。不是鸡汤，不是话术，而是真正帮你理解招聘方视角的认知升级。',
     avatar: '李',
   },
   {
-    name: '张丽俊',
-    title: '创业酵母创始人 / 组织战略专家',
+    name: 'Audrey Zhang',
+    title: '500强组织战略专家',
     quote: '从简历到薪资谈判，每一章都有可以直接用的方法论。特别是 Offer 评估五维模型，我推荐给所有做职业咨询的同行。',
     avatar: '张',
   },
   {
-    name: '崔磊',
+    name: 'David Cui',
     title: '资深猎头顾问 / 职场博主',
     quote: '做了15年猎头，这本书说出了我一直想告诉候选人却说不清楚的话。尤其是候选人分级和跳槽进化那两章，值得反复读。',
     avatar: '崔',
@@ -324,7 +324,7 @@ const parts = [
     chapters: [
       {
         chapterId: 'epilogue', label: '终章', icon: '💌',
-        title: '写在最后：求职是一场修行',
+        title: '求职的尽头，是认识你自己',
         link: '/epilogue/',
         sections: [],
       },
