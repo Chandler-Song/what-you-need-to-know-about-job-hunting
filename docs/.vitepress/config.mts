@@ -246,7 +246,21 @@ function sidebarConfig() {
         ]),
       ],
     },
-    { text: '附录', items: [{ text: '附录A-E', link: '/appendix/' }] },
+    {
+      text: '终章',
+      items: [{ text: '写在最后：求职是一场修行', link: '/epilogue/' }],
+    },
+    {
+      text: '附录',
+      collapsed: true,
+      items: [
+        { text: '附录A 猎头常用候选人评估维度速查表', link: '/appendix/a' },
+        { text: '附录B 30个高频面试题与底层逻辑拆解', link: '/appendix/b' },
+        { text: '附录C 薪资谈判话术模板（分场景）', link: '/appendix/c' },
+        { text: '附录D 背调问题标准库', link: '/appendix/d' },
+        { text: '附录E 推荐阅读书单', link: '/appendix/e' },
+      ],
+    },
   ]
 
   // 将完整侧边栏映射到所有章节路径，/about /resources 等不在映射中则无侧边栏
@@ -258,6 +272,7 @@ function sidebarConfig() {
     '/chapter-10/', '/chapter-11/',
     '/chapter-12/', '/chapter-13/',
     '/chapter-14/', '/chapter-15/', '/chapter-16/',
+    '/epilogue/',
     '/appendix/',
   ]
   return Object.fromEntries(paths.map(p => [p, fullSidebar])) as Record<string, typeof fullSidebar>

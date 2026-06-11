@@ -9,7 +9,7 @@
         <div class="hero-text">
           <h1 class="hero-title">关于求职，你要知道的那些事</h1>
           <p class="hero-subtitle">一个猎头老炮儿的10年血泪真经</p>
-          <p class="hero-meta">5 大部分 · 16 章 · 79 节 · 实战导向</p>
+          <p class="hero-meta">6 大部分 · 16 章 · 终章 · 5 篇附录 · 实战导向</p>
           <div class="hero-actions">
             <a :href="withBase('/intro/')" class="btn-primary">开始阅读</a>
             <a :href="withBase('/about')" class="btn-outline">了解更多</a>
@@ -315,6 +315,29 @@ const parts = [
           { sectionId: '16.3', title: '16.3 写给35+的人', link: '/chapter-16/03' },
           { sectionId: '16.4', title: '16.4 写给大厂出走的人', link: '/chapter-16/04' },
           { sectionId: '16.5', title: '16.5 写给反复跳槽的人', link: '/chapter-16/05' },
+        ],
+      },
+    ],
+  },
+  {
+    name: '尾声',
+    chapters: [
+      {
+        chapterId: 'epilogue', label: '终章', icon: '💌',
+        title: '写在最后：求职是一场修行',
+        link: '/epilogue/',
+        sections: [],
+      },
+      {
+        chapterId: 'appendix', label: '附录', icon: '📎',
+        title: '实战工具包',
+        link: '/appendix/',
+        sections: [
+          { sectionId: 'A', title: 'A 猎头评估维度速查表', link: '/appendix/a' },
+          { sectionId: 'B', title: 'B 30个高频面试题拆解', link: '/appendix/b' },
+          { sectionId: 'C', title: 'C 薪资谈判话术模板', link: '/appendix/c' },
+          { sectionId: 'D', title: 'D 背调问题标准库', link: '/appendix/d' },
+          { sectionId: 'E', title: 'E 推荐阅读书单', link: '/appendix/e' },
         ],
       },
     ],
