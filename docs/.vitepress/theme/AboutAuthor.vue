@@ -1,13 +1,13 @@
 <template>
   <div class="author-card">
     <div class="author-avatar-wrap">
-      <img :src="withBase('/author-avatar.svg')" alt="宋秀强" class="author-avatar" />
+      <img :src="withBase('/avatar.jpg')" alt="宋秀强" class="author-avatar" />
     </div>
     <div class="author-info">
       <h3 class="author-name">宋秀强</h3>
       <p class="author-tagline">深耕人力资源和职业发展领域的实践者</p>
       <div class="author-tags">
-        <span class="tag">8年猎头</span>
+        <span class="tag">10年猎头</span>
         <span class="tag">世界500强招聘经理</span>
         <span class="tag">GCDF职业规划师</span>
       </div>
