@@ -16,27 +16,7 @@
 
 ## 作者介绍
 
-<div style="display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem; border-radius: 12px; background: var(--vp-c-bg-soft); border: 1px solid var(--vp-c-divider); margin-bottom: 1rem;">
-
-<div style="flex-shrink: 0;">
-<img src="/author-avatar.svg" alt="宋秀强" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-brand-primary);" />
-</div>
-
-<div style="flex: 1;">
-
-**宋秀强**
-
-深耕人力资源和职业发展领域的实践者：
-
-- 8年猎头 + 3年世界五百强资深招聘经理经验
-- 职业规划师（GCDF全球职业规划师）
-- 行业洞察研究员（长期跟踪就业市场趋势）
-
-10多年时间累计服务过超过 **5000** 名求职者，覆盖互联网、高科技、人工智能、芯片、智能硬件、金融等多个行业。
-
-</div>
-
-</div>
+<AboutAuthor />
 
 ---
 
